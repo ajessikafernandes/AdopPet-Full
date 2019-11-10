@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author jessikafernandess 
@@ -29,18 +33,45 @@ public class Address {
 	@Column (name = "UF", length = 2, nullable = false)
 	private String uf;
 	
+	@JsonIgnore
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private User user;
+	
+	@JsonIgnore
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private Pet pet;
+	
 	public Address() {
 
 	}
 
-	public Address(String zip, String city, String uf) {
+	public Address(Long id, String zip, String city, String uf) {
+		this.id = id;
 		this.zip = zip;
 		this.city = city;
 		this.uf = uf;
 	}
+	
+	public Address(Long id, String zip, String city, String uf, User user) {
+		this.id = id;
+		this.zip = zip;
+		this.city = city;
+		this.uf = uf;
+		this.user = user;
+	}
+	
+	public Address(Long id, String zip, String city, String uf, Pet pet) {
+		this.id = id;
+		this.zip = zip;
+		this.city = city;
+		this.uf = uf;
+		this.pet = pet;
+	}
 
 	/* Getters and Setters */
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -72,8 +103,24 @@ public class Address {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
 	
-	 @Override
+	@Override
 	  public String toString() {
 	    return "Person [id=" + id + ", zip = " + zip + ", city = " + city + ", UF = " + uf + "]";
 	  }

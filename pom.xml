@@ -24,6 +24,11 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		
 		<!-- Possui seu próprio servidor para rodar a aplicação -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,40 +60,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		
-		<!-- Junit -->
-		<dependency>
-			<artifactId>junit</artifactId>
-			<groupId>junit</groupId>
-			<version>4.12</version>
-		</dependency>
-		
-		<!-- Security Web -->
-		<dependency>
-	        <groupId>org.springframework.security</groupId>
-	        <artifactId>spring-security-web</artifactId>
-      	</dependency>
-      
-		<!-- Mockito -->
-		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-core</artifactId>
-		    <version>3.1.0</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
-		<dependency>
-		    <groupId>org.thymeleaf</groupId>
-		    <artifactId>thymeleaf</artifactId>
-		    <version>3.0.11.RELEASE</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-config</artifactId>
-		    <version>5.1.5.RELEASE</version>
 		</dependency>
 
 	</dependencies>
