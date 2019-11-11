@@ -1,33 +1,36 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="shared/meta :: meta"></th:block>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <body>
 
 	<div th:fragment="meta">
 		<head>
-		
-			<!-- Icon -->
-			<link rel="icon" th:href="@{/img/favicon.png}" />
-			
-			<!-- Required meta tags -->
-			<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-			<meta content="utf-8" http-equiv="encoding">
-			<meta name="viewport"
-				content="width=device-width, initial-scale=1, shrink-to-fit=no">
-			
-			<!-- Bootstrap CSS -->
-			<link rel="stylesheet"
-				href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-			
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
-			
-			<!--Font Awesome -->
-			<script src="https://kit.fontawesome.com/2987d54801.js"></script>	
-						
-			<link rel="stylesheet" type="text/css" href="/css/style.css">
-			
-			<title> AdoptPet </title>
-			
+
+<!-- Icon -->
+<link rel="icon" th:href="@{/img/favicon.png}" />
+
+<!-- Required meta tags -->
+<meta content="text/html" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!--Font Awesome -->
+<script src="https://kit.fontawesome.com/2987d54801.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+
+<title>AdoptPet</title>
+
 		</head>
 	</div>
 

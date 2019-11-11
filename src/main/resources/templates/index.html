@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-	<html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<th:block th:include="shared/meta :: meta"></th:block>
-						
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="shared/meta :: meta"></th:block>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <body>
 	<div style="width: 100%;">
 		<!-- Navigation -->
 		<nav class="navbar nav-menu">
 			<div>
-				<a href="portal.html"><img class="logo"
-					th:src="@{/img/logo.png}"></a> <a class="login-user"
-					data-toggle="modal" data-target="#modalRegisterFormUserDonate">
-					<i class="fas fa-user-circle"></i> Login
+				<a href="index"><img class="logo" th:src="@{/img/logo.png}"></a>
+				<a class="login-user" data-toggle="modal"
+					data-target="#modalRegisterFormUserDonate"> <i
+					class="fas fa-user-circle"></i> Login
 				</a>
 				<!-- Modal Resgister User Donate-->
 				<div class="modal fade" id="modalRegisterFormUserDonate"
@@ -20,8 +21,7 @@
 						<div class="modal-content">
 							<div class="modal-header text-center">
 								<div>
-									<a href="index.html"><img class="logo"
-										src="img/favicon.png"></a>
+									<a href="index"><img class="logo" src="img/favicon.png"></a>
 								</div>
 								<h4 class="modal-title w-100 title-modal title-center">
 									Acesse a sua conta</h4>
@@ -42,14 +42,14 @@
 								<br>
 								<div class="text-center">
 									<p>
-										Não tem uma conta? <a href="register-user.html"
+										NÃ£o tem uma conta? <a href="register-user"
 											style="color: #460fcd;">Cadastre-se</a>
 									</p>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-light"
 										data-dismiss="modal">Fechar</button>
-									<a href="adote-um-pet.html" class="btn btn-info" role="button"
+									<a href="adote-um-pet" class="btn btn-info" role="button"
 										aria-pressed="true">Entrar</a>
 								</div>
 							</div>
@@ -72,8 +72,8 @@
 				<div class="row ">
 					<div class="col-sm-6 "></div>
 					<div class="col-sm-6 div-button-info-banner">
-						<a href="adote-um-pet.html" class="btn btn-info-banner"
-							role="button " aria-pressed="true "> + Amigos </a>
+						<a href="adote-um-pet" class="btn btn-info-banner" role="button "
+							aria-pressed="true "> + Amigos </a>
 					</div>
 				</div>
 			</div>
@@ -83,8 +83,8 @@
 			<h2 class="adopt-title text-center ">Encontre o seu mais novo
 				amigo</h2>
 			<br>
-			<div class="row ">
-				<a href="adote-um-pet.html">
+			<div class="row">
+				<a href="adote-um-pet">
 					<div class="col-sm-4">
 						<div class="card" style="width: 350px" href="#">
 							<img class="card-img-top " src="img/doguinho1.jpg "
@@ -105,7 +105,8 @@
 							</div>
 						</div>
 					</div>
-				</a> <a href="adote-um-pet.html">
+				</a> 
+				<a href="adote-um-pet">
 					<div class="col-sm-4">
 						<div class="card " style="width: 350px">
 							<img class="card-img-top " src="img/gatinho1.jpg "
@@ -126,7 +127,8 @@
 							</div>
 						</div>
 					</div>
-				</a> <a href="adote-um-pet.html">
+				</a> 
+				<a href="adote-um-pet">
 					<div class="col-sm-4 ">
 						<div class="card " style="width: 350px">
 							<img class="card-img-top " src="img/doguinho2.jpg "
@@ -152,8 +154,8 @@
 		</div>
 		<br>
 		<div class="row text-center ">
-			<a href="adote-um-pet.html " class="btn btn-info-banner "
-				role="button " aria-pressed="true "> + Amigos </a>
+			<a href="adote-um-pet" class="btn btn-info-banner " role="button "
+				aria-pressed="true "> + Amigos </a>
 		</div>
 		<hr>
 		<!--Register Donate-->
@@ -162,9 +164,10 @@
 			<h2>Ajude-nos a salvar vidas, doe um pet !</h2>
 			<h5>Acreditamos que todo animal de rua merece um lar, e que todo
 				animal de canil merece uma nova chance de ser feliz</h5>
-			<a href="register-user.html " class="btn btn-info-banner"
-				role="button " aria-pressed="true ">Doe</a>
+			<a href="register-user" class="btn btn-info-banner" role="button "
+				aria-pressed="true">Doe</a>
 		</div>
+
 		<!-- Footer -->
 		<th:block th:include="shared/footer :: footer"></th:block>
 		<!-- ./Footer -->
