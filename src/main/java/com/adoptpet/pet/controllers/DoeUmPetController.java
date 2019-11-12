@@ -19,7 +19,7 @@ public class DoeUmPetController {
 	 * @return
 	 */
 	@GetMapping("/doe-um-pet")
-	public String index() {
+	public String doePet() {
 		return "doe-um-pet";
 	}
 }

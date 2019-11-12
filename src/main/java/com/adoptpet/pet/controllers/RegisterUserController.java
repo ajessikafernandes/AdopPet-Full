@@ -2,6 +2,8 @@ package com.adoptpet.pet.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
 * Implement a page register-user.
@@ -10,7 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 * @since   10/11/2019
 */
 
-@Controller
+@RestController
+@RequestMapping(path = "register-user/")
 public class RegisterUserController {
 
 	/***
@@ -19,8 +22,10 @@ public class RegisterUserController {
 	 * @return
 	 */
 	@GetMapping("/register-user")
-	public String index() {
+	public String registerUser() {
 		return "register-user";
 	}
+	
+	
 
 }

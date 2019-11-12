@@ -19,7 +19,7 @@ public class AdoteOnePetController {
 	 * @return
 	 */
 	@GetMapping("/adote-um-pet")
-	public String index() {
+	public String adotePet() {
 		return "adote-um-pet";
 	}
 }

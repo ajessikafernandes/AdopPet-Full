@@ -17,7 +17,7 @@ public class PortalController {
 	 * ESSE MÉTODO CARREGA A PÁGINA(portal.html) DA NOSSA APLICAÇÃO
 	 */
 	@GetMapping("/portal")
-	public String index() {
+	public String portal() {
 		return "portal";
 	}
 }
