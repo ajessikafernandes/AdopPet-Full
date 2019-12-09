@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import com.adoptpet.pet.enums.Gender;
+import com.adoptpet.pet.enums.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -22,16 +24,14 @@ public class Pet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String petName;
-	
+		
 	private String breedName;
 	
 	private TypePet typePet;
 	
 	private Gender gender;
 	
-	private Boolean size = true;
+	private Size size;
 	
 	private Boolean vaccinated = true;
 	
@@ -64,13 +64,12 @@ public class Pet {
 		
 	}
 
-	public Pet(Long id, String petName, String breedName, TypePet typePet, Gender gender, Boolean size,
+	public Pet(Long id, String breedName, TypePet typePet, Gender gender, Size size,
 			Boolean vaccinated, Boolean microchip, Boolean domestic, Boolean sociality, Boolean needsSpeciality,
 			Boolean experienceAdopt, String petHistory, String petDiet,
 			@NotEmpty(message = "*Please provide your Fist Name") String firstName, Address address,
 			List<User> petWithUser) {
 		this.id = id;
-		this.petName = petName;
 		this.breedName = breedName;
 		this.typePet = typePet;
 		this.gender = gender;
@@ -98,14 +97,6 @@ public class Pet {
 		this.id = id;
 	}
 
-	public String getPetName() {
-		return petName;
-	}
-
-	public void setPetName(String petName) {
-		this.petName = petName;
-	}
-
 	public String getBreedName() {
 		return breedName;
 	}
@@ -130,11 +121,11 @@ public class Pet {
 		this.gender = gender;
 	}
 
-	public Boolean getSize() {
+	public Size getSize() {
 		return size;
 	}
 
-	public void setSize(Boolean size) {
+	public void setSize(Size size) {
 		this.size = size;
 	}
 

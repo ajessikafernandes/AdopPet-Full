@@ -1,8 +1,9 @@
-package com.adoptpet.pet.model;
+package com.adoptpet.pet.enums;
 
 /**
 * Enumeration for reflecting user's/pet's gender.
 * @author jessikafernandes!
+* @since   10/11/2019
 */
 
 public enum Gender {
