@@ -3,11 +3,15 @@ package com.adoptpet.pet.enums;
 /**
 * Enumeration for reflecting user's/pet's gender.
 * @author jessikafernandes!
+<<<<<<< HEAD
 * @since   10/11/2019
+=======
+>>>>>>> origin
 */
 
 public enum Gender {
 	
+<<<<<<< HEAD
 	MASCULINO, FEMININO, INDEFINIDO
 //   /** Masculino. */
 //   M("Male"),
@@ -28,4 +32,10 @@ public enum Gender {
 //   public String getName() {
 //       return this.name;
 //   }
+=======
+   MALE,
+   FEMALE,
+   UNDEFINED,
+
+>>>>>>> origin
 }

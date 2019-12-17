@@ -19,7 +19,11 @@ public class DoeUmPetController {
 	 * @return
 	 */
 	@GetMapping("/doe-um-pet")
+<<<<<<< HEAD
 	public String doeUmPet() {
+=======
+	public String doePet() {
+>>>>>>> origin
 		return "doe-um-pet";
 	}
 }

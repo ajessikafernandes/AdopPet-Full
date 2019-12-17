@@ -1,5 +1,6 @@
 package com.adoptpet.pet.enums;
 
+<<<<<<< HEAD
 /**
  * Enumeration for reflecting user's/pet's size.
  * 
@@ -31,5 +32,12 @@ public enum Size {
 //	public String getName() {
 //		return this.name;
 //	}
+=======
+public enum Size {
+	
+	PEQUENO,
+	MEDIO,
+	GRANDE
+>>>>>>> origin
 
 }

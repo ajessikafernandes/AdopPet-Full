@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 * @author  jessikafernandes
 * @since   10/11/2019
 */
-
 @Controller
 public class AboutController {
 
@@ -19,7 +18,11 @@ public class AboutController {
 	 * @return
 	 */
 	@GetMapping("/about")
+<<<<<<< HEAD
 	public String sobre() {
+=======
+	public String about() {
+>>>>>>> origin
 		return "about";
 	}
 	
