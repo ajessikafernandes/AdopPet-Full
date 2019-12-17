@@ -20,7 +20,7 @@ import com.adoptpet.pet.service.PetService;
 */
 
 @RestController
-@RequestMapping(path = "adote-um-pet/")
+@RequestMapping(path = "adote/pet/")
 public class PetController {
 	
 	private PetService petService;
@@ -40,6 +40,7 @@ public class PetController {
 //		return "adote-um-pet";
 //	}
 //	
+
 	@GetMapping("list")
 	public ResponseEntity<?> listPet() throws ExceptionNonexistentObject {
 		List<Pet> pet = petService.listaPets();
