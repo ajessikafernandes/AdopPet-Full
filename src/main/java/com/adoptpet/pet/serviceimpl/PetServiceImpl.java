@@ -15,7 +15,7 @@ import com.adoptpet.pet.service.PetService;
  * PetService.
  * 
  * @author jessikafernandes!
- * @since 08/12/2019
+ * @since 16/12/2019
  */
 
 @Service
@@ -32,11 +32,11 @@ public class PetServiceImpl implements PetService {
 	public List<Pet> listaPets() {
 		List<Pet> pet = petRepository.findAll();
 		if (pet.size() > 0) {
-			System.out.println("imprimindo pet");
+			System.out.println("Imprimindo lista de pets:");
+			System.out.println(pet);
 			return pet;
 		}
 		throw new ExceptionNonexistentObject("Nenhum pet encontrado no sistema.");
-
 	}
 
 }

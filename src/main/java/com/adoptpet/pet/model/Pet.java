@@ -55,34 +55,7 @@ public class Pet {
 	
 	@ManyToMany(mappedBy = "petWithUser", cascade = CascadeType.ALL)
 	private List<User> petWithUser;
-
-	public Pet() {
-		
-	}
 	
-	public Pet(Long id, String breedName, String namePet, TypePet typePet, Gender gender, Size size,
-			SelectOption vaccinated, SelectOption microchip, SelectOption domestic, SelectOption sociality,
-			SelectOption needsSpeciality, SelectOption experienceAdopt, String petHistory, String petDiet,
-			Address address, List<User> petWithUser) {
-		super();
-		this.id = id;
-		this.breedName = breedName;
-		this.namePet = namePet;
-		this.typePet = typePet;
-		this.gender = gender;
-		this.size = size;
-		this.vaccinated = vaccinated;
-		this.microchip = microchip;
-		this.domestic = domestic;
-		this.sociality = sociality;
-		this.needsSpeciality = needsSpeciality;
-		this.experienceAdopt = experienceAdopt;
-		this.petHistory = petHistory;
-		this.petDiet = petDiet;
-		this.address = address;
-		this.petWithUser = petWithUser;
-	}
-
 	/* Getters and Setters */
 
 	public Long getId() {
