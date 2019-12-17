@@ -19,7 +19,9 @@ public class AboutController {
 	 * @return
 	 */
 	@GetMapping("/about")
-	public String index() {
+	public String sobre() {
 		return "about";
 	}
+	
+	
 }

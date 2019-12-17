@@ -19,7 +19,7 @@ public class RegisterUserController {
 	 * @return
 	 */
 	@GetMapping("/register-user")
-	public String index() {
+	public String registerUser() {
 		return "register-user";
 	}
 

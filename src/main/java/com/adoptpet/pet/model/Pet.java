@@ -3,7 +3,6 @@ package com.adoptpet.pet.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 import com.adoptpet.pet.enums.Gender;
+import com.adoptpet.pet.enums.SelectOption;
 import com.adoptpet.pet.enums.Size;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.adoptpet.pet.enums.TypePet;
 
 @Entity
 @Table(name = "PET")
@@ -25,52 +24,50 @@ public class Pet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 		
-	private String breedName;
+	private String breedName; //Nome da Raça
 	
-	private TypePet typePet;
+	private String namePet; //Nome do Pet
 	
-	private Gender gender;
+	private TypePet typePet; //Tipo de Pet
 	
-	private Size size;
+	private Gender gender; //Genero
 	
-	private Boolean vaccinated = true;
+	private Size size; //Tamanho
 	
-	private Boolean microchip = true;
+	private SelectOption vaccinated;
 	
-	private Boolean domestic = true;
+	private SelectOption microchip;
 	
-	private Boolean sociality = true;
+	private SelectOption domestic;
 	
-	private Boolean needsSpeciality = true;
+	private SelectOption sociality;
 	
-	private Boolean experienceAdopt = true;
+	private SelectOption needsSpeciality;
+	
+	private SelectOption experienceAdopt;
 	
 	private String petHistory;
 	
 	private String petDiet;
 	
-	@Column(name = "FIRST_NAME")
-	@NotEmpty(message = "*Please provide your Fist Name")
-	private String firstName;
-	
 	@OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
 	private Address address;
 	
-	@JsonIgnore
 	@ManyToMany(mappedBy = "petWithUser", cascade = CascadeType.ALL)
 	private List<User> petWithUser;
-	
-	public Pet () {
+
+	public Pet() {
 		
 	}
-
-	public Pet(Long id, String breedName, TypePet typePet, Gender gender, Size size,
-			Boolean vaccinated, Boolean microchip, Boolean domestic, Boolean sociality, Boolean needsSpeciality,
-			Boolean experienceAdopt, String petHistory, String petDiet,
-			@NotEmpty(message = "*Please provide your Fist Name") String firstName, Address address,
-			List<User> petWithUser) {
+	
+	public Pet(Long id, String breedName, String namePet, TypePet typePet, Gender gender, Size size,
+			SelectOption vaccinated, SelectOption microchip, SelectOption domestic, SelectOption sociality,
+			SelectOption needsSpeciality, SelectOption experienceAdopt, String petHistory, String petDiet,
+			Address address, List<User> petWithUser) {
+		super();
 		this.id = id;
 		this.breedName = breedName;
+		this.namePet = namePet;
 		this.typePet = typePet;
 		this.gender = gender;
 		this.size = size;
@@ -82,13 +79,12 @@ public class Pet {
 		this.experienceAdopt = experienceAdopt;
 		this.petHistory = petHistory;
 		this.petDiet = petDiet;
-		this.firstName = firstName;
 		this.address = address;
 		this.petWithUser = petWithUser;
 	}
 
 	/* Getters and Setters */
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -103,6 +99,14 @@ public class Pet {
 
 	public void setBreedName(String breedName) {
 		this.breedName = breedName;
+	}
+
+	public String getNamePet() {
+		return namePet;
+	}
+
+	public void setNamePet(String namePet) {
+		this.namePet = namePet;
 	}
 
 	public TypePet getTypePet() {
@@ -129,51 +133,51 @@ public class Pet {
 		this.size = size;
 	}
 
-	public Boolean getVaccinated() {
+	public SelectOption getVaccinated() {
 		return vaccinated;
 	}
 
-	public void setVaccinated(Boolean vaccinated) {
+	public void setVaccinated(SelectOption vaccinated) {
 		this.vaccinated = vaccinated;
 	}
 
-	public Boolean getMicrochip() {
+	public SelectOption getMicrochip() {
 		return microchip;
 	}
 
-	public void setMicrochip(Boolean microchip) {
+	public void setMicrochip(SelectOption microchip) {
 		this.microchip = microchip;
 	}
 
-	public Boolean getDomestic() {
+	public SelectOption getDomestic() {
 		return domestic;
 	}
 
-	public void setDomestic(Boolean domestic) {
+	public void setDomestic(SelectOption domestic) {
 		this.domestic = domestic;
 	}
 
-	public Boolean getSociality() {
+	public SelectOption getSociality() {
 		return sociality;
 	}
 
-	public void setSociality(Boolean sociality) {
+	public void setSociality(SelectOption sociality) {
 		this.sociality = sociality;
 	}
 
-	public Boolean getNeedsSpeciality() {
+	public SelectOption getNeedsSpeciality() {
 		return needsSpeciality;
 	}
 
-	public void setNeedsSpeciality(Boolean needsSpeciality) {
+	public void setNeedsSpeciality(SelectOption needsSpeciality) {
 		this.needsSpeciality = needsSpeciality;
 	}
 
-	public Boolean getExperienceAdopt() {
+	public SelectOption getExperienceAdopt() {
 		return experienceAdopt;
 	}
 
-	public void setExperienceAdopt(Boolean experienceAdopt) {
+	public void setExperienceAdopt(SelectOption experienceAdopt) {
 		this.experienceAdopt = experienceAdopt;
 	}
 
@@ -193,14 +197,6 @@ public class Pet {
 		this.petDiet = petDiet;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
 	public Address getAddress() {
 		return address;
 	}
@@ -215,6 +211,6 @@ public class Pet {
 
 	public void setPetWithUser(List<User> petWithUser) {
 		this.petWithUser = petWithUser;
-	}
-	
+	}	
+		
 }
