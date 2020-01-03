@@ -1,6 +1,5 @@
 package com.adoptpet.pet.model;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,15 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.adoptpet.pet.enums.Hours;
 import com.adoptpet.pet.enums.SelectInterview;
+
+/**
+ *Implement entity to persist object User in database.
+ *
+ * @author jessikafernandes
+ * @since 02/01/2020
+ */
 
 @Entity
 @Table(name = "USER")
@@ -65,15 +72,16 @@ public class User {
 	// how many petz do you own?
 	// Quantos pets voce possui ?
 	@Column(name = "HOW_MANY_PETS")
-	private SelectInterview howManyPets;
+	private Integer howManyPets;
 
 	// Costuma ficar alguem com os seus pets durante o dia ?
 	@Column(name = "HAS_COMPANY")
 	private SelectInterview hasCompany;
 
-	// Quantas horas seus pet costuma ficar sozinho ?
+//	Quantas horas seus pet costuma ficar sozinho ?
 	@Column(name = "HOURS_ALONE")
-	private SimpleDateFormat hoursAlone = new SimpleDateFormat("HH:mm");
+	private Hours hoursAlone;
+	// private SimpleDateFormat hoursAlone = new SimpleDateFormat("hh:mm");
 
 	// Conte nos um pouco sobre o comportamento dos seus pets
 	@Column(name = "PETS_BEHAVIOR")
@@ -91,20 +99,28 @@ public class User {
 
 	public User() {
 
-	}
+	}	
 
 	public User(Long id,
 			@Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email,
 			@Length(min = 8, message = "*Your password must have at least 8 characters") @NotEmpty(message = "*Please provide your password") String password,
 			@NotEmpty(message = "*Please provide your Fist Name") String firstName,
 			@NotEmpty(message = "*Please provide your Last Name") String lastName,
-			@NotEmpty(message = "*Please provide your Phone") String phone, Address address, List<Pet> petWithUser) {
+			@NotEmpty(message = "*Please provide your Phone") String phone, SelectInterview hasExperience,
+			SelectInterview hasPets, Integer howManyPets, SelectInterview hasCompany, Hours hoursAlone,
+			String petsBehavior, Address address, List<Pet> petWithUser) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
+		this.hasExperience = hasExperience;
+		this.hasPets = hasPets;
+		this.howManyPets = howManyPets;
+		this.hasCompany = hasCompany;
+		this.hoursAlone = hoursAlone;
+		this.petsBehavior = petsBehavior;
 		this.address = address;
 		this.petWithUser = petWithUser;
 	}
@@ -159,6 +175,46 @@ public class User {
 		this.phone = phone;
 	}
 
+	public SelectInterview getHasExperience() {
+		return hasExperience;
+	}
+
+	public void setHasExperience(SelectInterview hasExperience) {
+		this.hasExperience = hasExperience;
+	}
+
+	public SelectInterview getHasPets() {
+		return hasPets;
+	}
+
+	public void setHasPets(SelectInterview hasPets) {
+		this.hasPets = hasPets;
+	}
+
+	public Integer getHowManyPets() {
+		return howManyPets;
+	}
+
+	public void setHowManyPets(Integer howManyPets) {
+		this.howManyPets = howManyPets;
+	}
+
+	public SelectInterview getHasCompany() {
+		return hasCompany;
+	}
+
+	public void setHasCompany(SelectInterview hasCompany) {
+		this.hasCompany = hasCompany;
+	}
+
+	public String getPetsBehavior() {
+		return petsBehavior;
+	}
+
+	public void setPetsBehavior(String petsBehavior) {
+		this.petsBehavior = petsBehavior;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -175,10 +231,17 @@ public class User {
 		this.petWithUser = petWithUser;
 	}
 
-	@Override
-	public String toString() {
-		return "Person [id = " + id + ", firstName = " + firstName + ", city = " + address.getCity() + ", uf = "
-				+ address.getUf();
+	public Hours getHoursAlone() {
+		return hoursAlone;
 	}
 
+	public void setHoursAlone(Hours hoursAlone) {
+		this.hoursAlone = hoursAlone;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [id = " + this.id + ", firstName = " + this.firstName + ", city = " + address.getCity()
+				+ ", uf = " + address.getUf();
+	}
 }
