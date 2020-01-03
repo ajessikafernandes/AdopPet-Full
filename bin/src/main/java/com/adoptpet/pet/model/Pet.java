@@ -1,5 +1,6 @@
 package com.adoptpet.pet.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,6 +18,13 @@ import com.adoptpet.pet.enums.Size;
 import com.adoptpet.pet.enums.Status;
 import com.adoptpet.pet.enums.TypePet;
 
+/**
+ *Implement entity to persist object Pet in database.
+ *
+ * @author jessikafernandes
+ * @since 02/01/2020
+ */
+
 @Entity
 @Table(name = "PET")
 public class Pet {
@@ -31,21 +39,23 @@ public class Pet {
 
 	private TypePet typePet; // Tipo de Pet
 
-	private Gender gender; // Genero
+	private Gender gender; // Genero do pet
 
-	private Size size; // Tamanho
+	private Size size; // Tamanho do pet
 
-	private SelectOption vaccinated;
+	private SelectOption vaccinated; //Tomou vacinas
 
-	private SelectOption microchip;
+	private SelectOption microchip; //Possui microchip
 
-	private SelectOption domestic;
+	private SelectOption castrated;
 
-	private SelectOption sociality;
+	private SelectOption sociality; //Socializavel com outros pets
 
-	private SelectOption needsSpeciality;
+	private SelectOption needsSpeciality; //Possui necessidades especiais
 
-	private SelectOption experienceAdopt;
+	private SelectOption experienceAdopt; //Precisa de um adotador com experiencia
+	
+	private Status status;
 
 	private String petHistory;
 
@@ -54,10 +64,36 @@ public class Pet {
 	@OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
 	private Address address;
 
+	//Pendente o envio por postman, 
 	@ManyToMany(mappedBy = "petWithUser", cascade = CascadeType.ALL)
 	private List<User> petWithUser;
+	
+	public Pet() {
 
-	private Status status;
+	}	
+	
+	public Pet(Long id, String breedName, String namePet, TypePet typePet, Gender gender, Size size,
+			SelectOption vaccinated, SelectOption microchip, SelectOption castrated, SelectOption sociality,
+			SelectOption needsSpeciality, SelectOption experienceAdopt, Status status, String petHistory,
+			String petDiet, Address address, List<User> petWithUser) {
+		this.id = id;
+		this.breedName = breedName;
+		this.namePet = namePet;
+		this.typePet = typePet;
+		this.gender = gender;
+		this.size = size;
+		this.vaccinated = vaccinated;
+		this.microchip = microchip;
+		this.castrated = castrated;
+		this.sociality = sociality;
+		this.needsSpeciality = needsSpeciality;
+		this.experienceAdopt = experienceAdopt;
+		this.status = status;
+		this.petHistory = petHistory;
+		this.petDiet = petDiet;
+		this.address = address;
+		this.petWithUser = new ArrayList<>();
+	}
 
 	/* Getters and Setters */
 
@@ -125,12 +161,12 @@ public class Pet {
 		this.microchip = microchip;
 	}
 
-	public SelectOption getDomestic() {
-		return domestic;
+	public SelectOption getCastrated() {
+		return castrated;
 	}
 
-	public void setDomestic(SelectOption domestic) {
-		this.domestic = domestic;
+	public void setCastrated(SelectOption castrated) {
+		this.castrated = castrated;
 	}
 
 	public SelectOption getSociality() {
@@ -155,6 +191,14 @@ public class Pet {
 
 	public void setExperienceAdopt(SelectOption experienceAdopt) {
 		this.experienceAdopt = experienceAdopt;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public String getPetHistory() {
@@ -188,13 +232,5 @@ public class Pet {
 	public void setPetWithUser(List<User> petWithUser) {
 		this.petWithUser = petWithUser;
 	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status string) {
-		this.status = string;
-	}
-
+	
 }
