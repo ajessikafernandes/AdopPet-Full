@@ -8,7 +8,10 @@ package com.adoptpet.pet.enums;
 
 public enum Gender {
 	
-	MASCULINO, FEMININO, INDEFINIDO
+	MASCULINO, 
+	FEMININO, 
+	INDEFINIDO
+	
 //   /** Masculino. */
 //   M("Male"),
 //   /** Feminino. */
