@@ -22,10 +22,10 @@ import com.adoptpet.pet.model.Pet;
 import com.adoptpet.pet.service.PetService;
 
 /**
- * Implement a page adote-um-pet.
+ * Implement a page adote/pet/.
  *
  * @author jessikafernandes
- * @since 10/11/2019
+ * @since 02/01/2020
  */
 
 @RestController
@@ -63,7 +63,7 @@ public class PetController {
 	}
 
 	// Metodo responsavel por buscar Pet por Id
-	@GetMapping("find/{id}")
+	@GetMapping("{id}")
 	public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
 		Optional<Pet> pet = petService.findPetId(id);
 		if (pet.isPresent()) {
@@ -81,25 +81,15 @@ public class PetController {
 		Pet newPet = petService.newPet(pet);
 		return new ResponseEntity<>(petService.newPet(newPet), HttpStatus.CREATED);
 	}
-	
-	@PutMapping("update/{id}")
+
+	// Metodo responsavel por atualizar os dados do pet
+	@PutMapping("{id}")
 	@Transactional
-	public ResponseEntity<Object> updatePet ( @RequestBody @Valid Pet pet, @PathVariable(value = "id") Long id){
+	public ResponseEntity<Object> updatePet(@RequestBody @Valid Pet pet, @PathVariable(value = "id") Long id) {
 		Optional<Pet> petIn = petService.findPetId(id);
-		if(petIn.isPresent()) {
+		if (petIn.isPresent()) {
 			Pet pet1 = petService.updatePet(pet, id);
 			return ResponseEntity.ok(petService.updatePet(pet1, id));
-		} else {
-			return ResponseEntity.badRequest().body(new ExceptionNonexistentObject("nenhum pet atualizado"));
-		}
-	}
-	
-	@PutMapping("find/{id}")
-	public ResponseEntity<Object> disablePet( @RequestBody @Valid Pet pet, @PathVariable(value = "id") Long id){
-		Optional<Pet> petIn = petService.findPetId(id);
-		if(petIn.isPresent()) {
-			Pet pet1 = petService.disablePet(pet, id);
-			return ResponseEntity.ok(petService.disablePet(pet1, id));
 		} else {
 			return ResponseEntity.badRequest().body(new ExceptionNonexistentObject("nenhum pet atualizado"));
 		}

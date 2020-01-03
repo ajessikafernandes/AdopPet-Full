@@ -5,6 +5,12 @@ import java.util.Optional;
 
 import com.adoptpet.pet.model.Pet;
 
+/**
+ * Implementing methods 
+ * 
+ * @author jessikafernandes
+ * @since 02/01/2020
+ */
 
 public interface PetService {
 	

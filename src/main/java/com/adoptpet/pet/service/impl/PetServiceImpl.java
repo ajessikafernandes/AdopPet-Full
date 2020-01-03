@@ -39,8 +39,9 @@ public class PetServiceImpl implements PetService {
 			System.out.println(">>>>>>>>>>> Imprimindo lista de pets: <<<<<<<<<<<<<<");
 			System.out.println(pet);
 			return pet;
+		} else {
+			throw new ExceptionNonexistentObject("Não há pets cadastrados no sistema.");
 		}
-		throw new ExceptionNonexistentObject("Não há pets cadastrados no sistema.");
 	}
 
 	// Metodo responsavel por buscar Pet por Id
@@ -51,8 +52,9 @@ public class PetServiceImpl implements PetService {
 //			System.out.println(">>>>>>>>>>> Imprimindo pet id " + id + ": <<<<<<<<<<<<<<");
 //			System.out.println(pet.get().getNamePet());
 			return pet;
+		} else {
+			throw new ExceptionNonexistentObject("O id = " + id + " do pet não foi encontrado ou não existe.");
 		}
-		throw new ExceptionNonexistentObject("O id = " + id + " do pet não foi encontrado ou não existe.");
 	}
 
 	// Metodo responsavel por criar um novo Pet
@@ -69,8 +71,9 @@ public class PetServiceImpl implements PetService {
 		if (petIn.isPresent()) {
 			petRepository.save(pet);
 			return pet;
+		} else {
+			throw new ExceptionNonexistentObject("O id update = " + id + " do pet não foi encontrado ou não existe.");
 		}
-		throw new ExceptionNonexistentObject("O id update = " + id + " do pet não foi encontrado ou não existe.");
 	}
 
 	@Override
@@ -83,7 +86,8 @@ public class PetServiceImpl implements PetService {
 			}
 			petRepository.save(pet1);
 			return pet1;
+		} else {
+			throw new ExceptionNonexistentObject("O id update = " + id + " do pet não foi encontrado ou não existe.");
 		}
-		return null;
 	}
 }
