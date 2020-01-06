@@ -239,9 +239,4 @@ public class User {
 		this.hoursAlone = hoursAlone;
 	}
 
-	@Override
-	public String toString() {
-		return "Person [id = " + this.id + ", firstName = " + this.firstName + ", city = " + address.getCity()
-				+ ", uf = " + address.getUf();
-	}
 }

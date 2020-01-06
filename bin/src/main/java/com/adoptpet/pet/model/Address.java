@@ -9,10 +9,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.adoptpet.pet.enums.State;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @author jessikafernandess 
+ *Implement entity to persist object User in database.
+ *
+ * @author jessikafernandes
+ * @since 02/01/2020
  */
 
 //A classe Address representa uma entidade e seus objetos devem ser persistidos no banco de dados.
@@ -31,7 +35,7 @@ public class Address {
 	private String city;
 	
 	@Column (name = "UF", length = 2, nullable = false)
-	private String uf;
+	private State uf;
 	
 	@JsonIgnore
 	@OneToOne
@@ -47,31 +51,17 @@ public class Address {
 
 	}
 
-	public Address(Long id, String zip, String city, String uf) {
-		this.id = id;
-		this.zip = zip;
-		this.city = city;
-		this.uf = uf;
-	}
-	
-	public Address(Long id, String zip, String city, String uf, User user) {
+	public Address(Long id, String zip, String city, State uf, User user, Pet pet) {
 		this.id = id;
 		this.zip = zip;
 		this.city = city;
 		this.uf = uf;
 		this.user = user;
-	}
-	
-	public Address(Long id, String zip, String city, String uf, Pet pet) {
-		this.id = id;
-		this.zip = zip;
-		this.city = city;
-		this.uf = uf;
 		this.pet = pet;
 	}
 
 	/* Getters and Setters */
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -96,11 +86,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public String getUf() {
+	public State getUf() {
 		return uf;
 	}
 
-	public void setUf(String uf) {
+	public void setUf(State uf) {
 		this.uf = uf;
 	}
 
@@ -119,9 +109,5 @@ public class Address {
 	public void setPet(Pet pet) {
 		this.pet = pet;
 	}
-	
-	@Override
-	  public String toString() {
-	    return "Person [id=" + id + ", zip = " + zip + ", city = " + city + ", UF = " + uf + "]";
-	  }
+
 }
