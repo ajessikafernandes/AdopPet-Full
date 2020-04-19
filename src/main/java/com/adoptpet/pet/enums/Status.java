@@ -12,4 +12,5 @@ public enum Status {
 	DISPONIVEL,
 	EM_PROCESSO,
 	ADOTADO
+
 }

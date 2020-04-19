@@ -9,8 +9,8 @@ package com.adoptpet.pet.enums;
 
 public enum SelectOption {
 	
-	SIM,
-	NAO,
-	NAO_SEI
+	YES,
+	NO,
+	DO_NOT_KNOW
 
 }

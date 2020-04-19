@@ -21,13 +21,6 @@ import com.adoptpet.pet.exception.ExceptionNonexistentObject;
 import com.adoptpet.pet.model.User;
 import com.adoptpet.pet.service.UserService;
 
-/**
- * Implement a page adote/pet/user.
- *
- * @author jessikafernandes
- * @since 02/01/2020
- */
-
 @RestController
 @RequestMapping(path = "adote/pet/user")
 public class UserController {
@@ -39,7 +32,6 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	// Retorna uma lista de usuarios
 	@GetMapping("list")
 	public ResponseEntity<?> list() {
 		List<User> user = userService.listUsers();
@@ -51,7 +43,6 @@ public class UserController {
 		}
 	}
 
-	// Metodo responsavel por buscar User por Id
 	@GetMapping("{id}")
 	public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
 		Optional<User> user = userService.findUserId(id);
@@ -63,14 +54,12 @@ public class UserController {
 		}
 	}
 
-	// Metodo responsavel por criar um novo usuario
 	@PostMapping("new")
 	public ResponseEntity<User> newUser(@RequestBody @Valid User user) {
 		User newUser = userService.newUser(user);
 		return new ResponseEntity<>(userService.newUser(newUser), HttpStatus.CREATED);
 	}
 
-	// Metodo responsavel por atualizar dados do usuario por id
 	@PutMapping("{id}")
 	@Transactional
 	public ResponseEntity<Object> updatePet(@RequestBody @Valid User user, @PathVariable(value = "id") Long id) {

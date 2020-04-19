@@ -21,13 +21,6 @@ import com.adoptpet.pet.exception.ExceptionNonexistentObject;
 import com.adoptpet.pet.model.Address;
 import com.adoptpet.pet.service.AddressService;
 
-/**
- * Implement a page adote/pet/.
- *
- * @author jessikafernandes
- * @since 03/01/2020
- */
-
 @RestController
 @RequestMapping(path = "adote/pet/address")
 public class AddressController {
@@ -39,8 +32,6 @@ public class AddressController {
 		this.addressService = addressService;
 	}
 
-	// Metodo responsavel por listar os endereços cadastrados no banco
-	// caso não exista, retorna a mensagem de endereço não encontrado
 	@GetMapping("list")
 	public ResponseEntity<?> listAddress() {
 		List<Address> address = addressService.listaAddress();
@@ -52,7 +43,6 @@ public class AddressController {
 		}
 	}
 
-	// Metodo responsavel por buscar Address por Id
 	@GetMapping("{id}")
 	public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
 		Optional<Address> address = addressService.findAddressId(id);
@@ -64,14 +54,12 @@ public class AddressController {
 		}
 	}
 
-	// Metodo responsavel por criar um novo Address
 	@PostMapping("new")
 	public ResponseEntity<Object> newAddress(@RequestBody @Valid Address address) {
 		Address newAddress = addressService.newAddress(address);
 		return new ResponseEntity<>(addressService.newAddress(newAddress), HttpStatus.CREATED);
 	}
 
-	// Metodo responsavel por atualizar os dados do Usuário
 	@PutMapping("{id}")
 	@Transactional
 	public ResponseEntity<Object> updateAddress(@RequestBody @Valid Address address,

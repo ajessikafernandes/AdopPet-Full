@@ -21,78 +21,56 @@ import com.adoptpet.pet.exception.ExceptionNonexistentObject;
 import com.adoptpet.pet.model.Pet;
 import com.adoptpet.pet.service.PetService;
 
-/**
- * Implement a page adote/pet/.
- *
- * @author jessikafernandes
- * @since 02/01/2020
- */
-
 @RestController
 @RequestMapping(path = "adote/pet/")
 public class PetController {
 
-	private PetService petService;
-
-	@Autowired
-	public PetController(PetService petService) {
-		this.petService = petService;
-	}
-
-//	/***
-//	 * ESSE MÉTODO CARREGA A PÁGINA(adote-um-pet.html) DA NOSSA APLICAÇÃO
-//	 * 
-//	 * @return
-//	 */
-//	@GetMapping("/adote-um-pet")
-//	public String adoteUmPet() {
-//		return "adote-um-pet";
+//	private PetService petService;
+//
+//	@Autowired
+//	public PetController(PetService petService) {
+//		this.petService = petService;
 //	}
-
-	// Metodo responsavel por criar listar os Pets cadastrados no banco
-	// caso não exista, retorna a mensagem de pet não encontrado
-	@GetMapping("list")
-	public ResponseEntity<?> listPet() {
-		List<Pet> pet = petService.listaPets();
-		if (pet.size() > 0) {
-			return ResponseEntity.ok(pet);
-		} else {
-			return ResponseEntity.badRequest()
-					.body(new ExceptionNonexistentObject("Não há pets cadastrados no sistema."));
-		}
-	}
-
-	// Metodo responsavel por buscar Pet por Id
-	@GetMapping("{id}")
-	public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
-		Optional<Pet> pet = petService.findPetId(id);
-		if (pet.isPresent()) {
-			return ResponseEntity.ok(pet);
-		} else {
-			return ResponseEntity.badRequest()
-					.body(new ExceptionNonexistentObject("O id = " + id + " do pet não foi encontrado ou não existe"));
-		}
-	}
-
-	// Metodo responsavel por criar um novo Pet
-	@PostMapping("new")
-	@Transactional // @Transactional trabalha dentro do escopo de uma transação no banco de dados
-	public ResponseEntity<Pet> newPet(@RequestBody @Valid Pet pet) {
-		Pet newPet = petService.newPet(pet);
-		return new ResponseEntity<>(petService.newPet(newPet), HttpStatus.CREATED);
-	}
-
-	// Metodo responsavel por atualizar os dados do pet
-	@PutMapping("{id}")
-	@Transactional
-	public ResponseEntity<Object> updatePet(@RequestBody @Valid Pet pet, @PathVariable(value = "id") Long id) {
-		Optional<Pet> petIn = petService.findPetId(id);
-		if (petIn.isPresent()) {
-			Pet pet1 = petService.updatePet(pet, id);
-			return ResponseEntity.ok(petService.updatePet(pet1, id));
-		} else {
-			return ResponseEntity.badRequest().body(new ExceptionNonexistentObject("nenhum pet atualizado"));
-		}
-	}
+//
+//	@GetMapping("list")
+//	public ResponseEntity<?> listPet() {
+//		List<Pet> pet = petService.listaPets();
+//		if (pet.size() > 0) {
+//			return ResponseEntity.ok(pet);
+//		} else {
+//			return ResponseEntity.badRequest()
+//					.body(new ExceptionNonexistentObject("Não há pets cadastrados no sistema."));
+//		}
+//	}
+//
+//	@GetMapping("{id}")
+//	public ResponseEntity<Object> findById(@PathVariable(value = "id") Long id) {
+//		Optional<Pet> pet = petService.findPetId(id);
+//		if (pet.isPresent()) {
+//			return ResponseEntity.ok(pet);
+//		} else {
+//			return ResponseEntity.badRequest()
+//					.body(new ExceptionNonexistentObject("O id = " + id + " do pet não foi encontrado ou não existe"));
+//		}
+//	}
+//
+//	@PostMapping("new")
+//	@Transactional
+//	public ResponseEntity<Pet> newPet(@RequestBody @Valid Pet pet) {
+//		Pet newPet = petService.newPet(pet);
+//		return new ResponseEntity<>(petService.newPet(newPet), HttpStatus.CREATED);
+//	}
+//
+//	@PutMapping("{id}")
+//	@Transactional
+//	public ResponseEntity<Object> updatePet(@RequestBody @Valid Pet pet, @PathVariable(value = "id") Long id) {
+//		Optional<Pet> petIn = petService.findPetId(id);
+//		if (petIn.isPresent()) {
+//			Pet pet1 = petService.updatePet(pet, id);
+//			return ResponseEntity.ok(petService.updatePet(pet1, id));
+//		} else {
+//			return ResponseEntity.badRequest().body(new ExceptionNonexistentObject("nenhum pet atualizado"));
+//		}
+//	}
 
 }

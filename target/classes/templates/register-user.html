@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="shared/meta :: meta"></th:block>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar nav-menu">
+		<div>
+			<a href="index"><img class="logo" src="img/logo.png"></a>
+		</div>
+	</nav>
+	<br>
+	<div class="container">
+		<div class="tab-content">
+			<br>
+			<h1 class="text-center">Complete os seus dados</h1>
+			<h3>Informações de login</h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Email *</h4>
+					</div>
+					<div class="col-sm-4 text-left">
+						<input type="email" class="form-control"
+							placeholder="name@exemple.com" maxlength="50">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Senha *</h4>
+					</div>
+					<div class="col-sm-2 text-left">
+						<input type="password" class="form-control" placeholder="********"
+							maxlength="15">
+					</div>
+				</div>
+			</div>
+			<hr>
+			<h3>Informações Pessoais</h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Nome *</h4>
+					</div>
+					<div class="col-sm-4 text-left">
+						<input type="name" class="form-control" placeholder="First Name"
+							maxlength="30">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Sobrenome *</h4>
+					</div>
+					<div class="col-sm-4 text-left">
+						<input type="name" class="form-control" placeholder="Last Name"
+							maxlength="40">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Telefone *</h4>
+					</div>
+					<div class="col-sm-2 text-left">
+						<input type="text" class="form-control phone-ddd-mask"
+							placeholder="Ex.: (00) 0000-0000" maxlength="11">
+					</div>
+				</div>
+			</div>
+			<hr>
+			<h3>Onde podemos encontrá-lo?</h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>CEP</h4>
+					</div>
+					<div class="col-sm-2 text-left">
+						<input type="text" class="form-control"
+							placeholder="Ex.: 00000-000" cep-mask="00000-000" maxlength="8">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Cidade</h4>
+					</div>
+					<div class="col-sm-4 text-left">
+						<input type="text" class="form-control" placeholder="Cidade"
+							maxlength="40">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 text-left">
+						<h4>Estado</h4>
+					</div>
+					<div class="col-sm-1 text-left">
+						<input type="text" class="form-control" placeholder="UF"
+							maxlength="2">
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="container text-left">
+				<div class="col-sm-12 text-left">
+					<div class="row">
+						<input class="input_box" name="checkbox" type="checkbox"
+							value="idade"> Sou maior de 18 anos. *
+					</div>
+					<div class="row">
+						<input class="input_box" name="checkbox" type="checkbox"
+							value="termo"> Eu li, entendi e concordo com os <a
+							class="text-white ml-2" href="#index" target="_blank"
+							style="color: #460fcd;">TERMOS E CONDIÇÕES</a>. *
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="container text-left">
+				<a class="btn btn-info-banner" href="portal"> Cadastrar </a>
+			</div>
+			<br>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<th:block th:include="shared/footer :: footer"></th:block>
+	<!-- ./Footer -->
+
+</body>
+</html>

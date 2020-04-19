@@ -19,7 +19,7 @@ import com.adoptpet.pet.service.PetService;
  */
 
 @Service
-public class PetServiceImpl implements PetService {
+public class PetServiceImpl {
 
 	@Autowired
 	private PetRepository petRepository;
@@ -28,7 +28,6 @@ public class PetServiceImpl implements PetService {
 		this.petRepository = petRepository;
 	}
 
-	@Override
 	public List<Pet> listaPets() {
 		List<Pet> pet = petRepository.findAll();
 		if (pet.size() > 0) {

@@ -1,15 +1,7 @@
 package com.adoptpet.pet.enums;
 
-/**
- *Implement enum to select hours company by user.
- *
- * @author jessikafernandes
- * @since 02/01/2020
- */
-
 public enum Hours {
 
-	
 	QUATRO_A_SEIS("Quatro a seis horas"),
 	SEIS_A_OITO("Seis a oito horas"),
 	OITO_OU_MAIS("Oito ou mais horas");
